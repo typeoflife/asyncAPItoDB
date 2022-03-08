@@ -1,6 +1,5 @@
 import asyncio
 import aiohttp
-import time
 from more_itertools import chunked
 import platform
 import asyncpg
@@ -28,7 +27,6 @@ async def insert_users(pool: asyncpg.Pool, person_list):
 
 
 async def main(count_person: int):
-    start = time.time()
     tasks = []
     pool = await asyncpg.create_pool(config.PG_DSN, min_size=20, max_size=20)
 
@@ -37,9 +35,7 @@ async def main(count_person: int):
             person_tasks = [asyncio.create_task(get_json(session, i)) for i in chunk]
             for task in person_tasks:
                 res = await task
-                print(res)
                 tasks.append(asyncio.create_task(insert_users(pool, res)))
-        print('Время работы:', time.time() - start)
         await asyncio.gather(*tasks)
         await pool.close()
 
