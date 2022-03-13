@@ -1,5 +1,5 @@
 import asyncio
-from sqlalchemy import Integer, String, Column
+from sqlalchemy import Integer, String, Column, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
@@ -13,20 +13,20 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = 'persons'
 
-    id = Column(Integer, primary_key=True)
-    birth_year = Column(Integer)
-    eye_color = Column(String(50))
-    films = Column(String(256))
-    gender = Column(String(50))
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String(256))
+    height = Column(String(20))
+    mass = Column(String(20))
     hair_color = Column(String(50))
-    height = Column(Integer)
-    homeworld = Column(String(128))
-    mass = Column(Integer)
-    name = Column(String(128))
-    skin_color = Column(String(128))
-    species = Column(String(256))
-    starships = Column(String(256))
-    vehicles = Column(String(256))
+    skin_color = Column(String(50))
+    eye_color = Column(String(50))
+    birth_year = Column(String(50))
+    gender = Column(String(50))
+    homeworld = Column(String(256))
+    films = Column(Text())
+    species = Column(Text())
+    vehicles = Column(Text())
+    starships = Column(Text())
 
 
 async def get_async_session(

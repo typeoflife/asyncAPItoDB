@@ -15,7 +15,7 @@ async def fetch(pool: asyncpg.Pool, query):
 async def main():
     pool = await asyncpg.create_pool(config.PG_DSN)
     async for record in fetch(pool, 'SELECT * from persons'):
-        print(record['id'], record['name'])
+        print(record['id'], record['name'], record['mass'])
     await pool.close()
 
 if __name__ == '__main__':
