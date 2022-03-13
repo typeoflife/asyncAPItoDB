@@ -23,10 +23,10 @@ class User(Base):
     birth_year = Column(String(50))
     gender = Column(String(50))
     homeworld = Column(String(256))
-    films = Column(Text())
-    species = Column(Text())
-    vehicles = Column(Text())
-    starships = Column(Text())
+    films = Column(String(256))
+    species = Column(String(256))
+    vehicles = Column(String(256))
+    starships = Column(String(256))
 
 
 async def get_async_session(
