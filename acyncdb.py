@@ -45,9 +45,3 @@ async def main(count_person: int):
 
 if __name__ == '__main__':
     asyncio.run(main(2))
-
-# person_value = []
-# for person in persons:
-#     for val in person.items():
-#         person_value.append(val)
-# print(person_value)
