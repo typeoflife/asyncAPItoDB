@@ -49,4 +49,8 @@ async def main(count_person: int):
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     asyncio.run(main(100))
+=======
+    asyncio.run(main(2))
+>>>>>>> dd3b281653816bab59b47f5e4ae032f0c9fe28fd
