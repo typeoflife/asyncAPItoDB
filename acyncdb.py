@@ -36,11 +36,9 @@ async def main(count_person: int):
             person_tasks = [asyncio.create_task(get_json(session, i)) for i in chunk]
             persons = await asyncio.gather(*person_tasks)
             persons = [i for i in persons if len(i) != 1]
-            print(persons)
             for person in persons:
                 for key, value in person.items():
                     person.update({key: str(value)})
-                print(person)
                 persons_list.append(tuple(person.values())[:-3])
             tasks.append(asyncio.create_task(insert_users(pool, persons_list)))
 
@@ -49,8 +47,5 @@ async def main(count_person: int):
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     asyncio.run(main(100))
-=======
-    asyncio.run(main(2))
->>>>>>> dd3b281653816bab59b47f5e4ae032f0c9fe28fd
+    print('Done')
