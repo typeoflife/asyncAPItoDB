@@ -1,5 +1,5 @@
 PG_USER = 'postgres'
-PG_PASSWORD = '1234'
+PG_PASSWORD = '****'
 PG_HOST = '127.0.0.1'
 PG_DB = 'persons'
 PG_DSN = f'postgresql://{PG_USER}:{PG_PASSWORD}@{PG_HOST}:5432/{PG_DB}'
